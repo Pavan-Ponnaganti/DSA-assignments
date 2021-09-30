@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+class binarysearch{
+	public:
+		int method2(int arr[],int p,int size,int key){
+				if(p<=size)
+	{
+		int mid=(p+size)/2;
+		if(arr[mid]==key)
+	{
+		return mid;
+	}
+	else if(arr[mid]>key)
+	return method2(arr,p,mid-1,key);
+	else if(arr[mid]<key)
+	return method2(arr,mid+1,size,key);
+	}
+	return -1;
+		}
+};
+int main(){
+	binarysearch BS;
+	int key,size,p=0,i;
+	cout<<"enter the size of the array = ";
+	cin>>size;
+	int arr[size];
+		cout<<"enter the array elements of array\n";
+	for(i=0;i<size;i++)
+	{
+		cin>>arr[i];
+    }
+    cout<<"enter which element you want to find out=";
+    cin>>key;
+int index= BS.method2(arr,p,size-1,key);
+if(index== -1)
+cout<<"Oops your element is not found";
+else
+cout<<key<<" is found at arr["<<index<<"] ";
+return 0;
+}
