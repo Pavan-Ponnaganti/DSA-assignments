@@ -27,7 +27,7 @@ class binarysearch{
 int main()
 {
 	binarysearch BS;
-	int i,j,size;
+	int i,size;
 	cout<<"enter the size of array = ";
 	cin>>size;
 	int arr[size];
