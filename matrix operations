@@ -1,0 +1,113 @@
+#include<iostream>
+using namespace std;
+void add(int mat1[10][10], int mat2[10][10], int sum[10][10],int size)
+{
+  for(int i=0;i<size;i++)
+    for(int j=0;j<size;j++)
+      sum[i][j] = mat1[i][j] + mat2[i][j];
+}
+void subtract(int mat1[10][10], int mat2[10][10], int result[10][10],int size)
+{
+  for(int i=0;i<size;i++)
+    for(int j=0;j<size;j++)
+      result[i][j] = mat1[i][j] - mat2[i][j];
+}
+void multiply(int mat1[10][10], int mat2[10][10], int result[10][10],int size)
+{
+  for(int i=0; i < size; i++)
+  {
+    for(int j=0; j < size; j++)
+    {
+      result[i][j] = 0;
+      for (int k = 0; k < size; k++)
+      result[i][j] += mat1[i][k] * mat2[k][j];
+    }
+  }
+}
+void transpose(int mat1[10][10], int trans[10][10],int size)
+{
+  for (int i = 0; i < size; i++)
+    for (int j = 0; j < size; j++)
+      trans[i][j] = mat1[j][i];
+}
+void display(int mat2[10][10],int size)
+{
+  for(int i=0; i<size; i++)
+  {
+    for(int j=0; j<size; j++)
+     cout<<mat2[i][j]<<"\t";
+
+    cout<<"\n"; 
+  }
+}
+int main()
+{
+  int mat1[10][10];
+  int mat2[10][10];
+  int mat3[10][10]; 
+  int size;
+  cout<<"enter the size of square matrix : ";
+  cin>>size;
+  cout<<"Enter Elements Of First Matrix : ";
+  for(int i=0; i<size; i++)
+  {
+    for(int j=0; j<size; j++){
+    	cin>>mat1[i][j];
+	} 
+  }
+  cout<<"Enter Elements Of Second Matrix : ";
+   for(int i=0; i<size; i++)
+  {
+    for(int j=0; j<size; j++){
+    	cin>>mat2[i][j];
+	} 
+  }
+  cout<<"First Matrix:\n";
+  display(mat1,size);
+  cout<<"Second Matrix:\n";
+  display(mat2,size);
+  int choice;
+  while(1)
+  {
+    cout<<"\nChoose the matrix operation,\n";
+    cout<<"1. Addition\n";
+    cout<<"2. Subtraction\n";
+    cout<<"3. Multiplication\n";
+    cout<<"4. Transpose\n";
+    cout<<"5. Exit\n";
+    cout<<"Enter your choice: ";
+    cin>>choice;
+    switch (choice) {
+      case 1:
+        add(mat1, mat2, mat3,size);
+        cout<<"Sum of matrix: \n";
+        display(mat3,size);
+        break;
+      case 2:
+        subtract(mat1, mat2, mat3,size);
+        cout<<"Subtraction of matrix: \n";
+        display(mat3,size);
+        break;
+      case 3:
+        multiply(mat1, mat2, mat3,size);
+        cout<<"Multiplication of matrix: \n";
+        display(mat3,size);
+        break;
+      case 4:
+       cout<<"Transpose of the first matrix: \n";
+        transpose(mat1, mat3,size);
+        display(mat3,size);
+        cout<<"Transpose of the second matrix: \n";
+        transpose(mat2, mat3,size);
+        display(mat3,size);
+        break;
+      case 5:
+        cout<<"Thank You.\n";
+        exit(0);
+      default:
+        cout<<"Invalid input.\n";
+        cout<<"Please enter the correct input.\n";
+    }
+  }
+  return 0;
+}
