@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+//swaping array
+void swap(int *a, int *b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+//printing array
+void printArray(int array[], int size) {
+  int i;
+  for (i = 0; i < size; i++)
+    cout << array[i] << " ";
+  cout << endl;
+}
+//partation code for deviding array based on pevot element
+int partition(int array[], int low, int high) {
+  int pivot = array[high];
+  int i = (low);
+  for (int j = low; j < high; j++) {
+    if (array[j] <= pivot) { 
+      swap(&array[i], &array[j]);
+      i++;
+    }
+  }
+  swap(&array[i], &array[high]);
+  return (i );
+}
+//iterative program for quickshorting
+void iterativequickSort(int arr[], int l, int h)
+{
+	cout<<"iterative shorting \n";
+    int stack[h + 1];
+    int top = -1;
+    stack[++top] = l;
+    stack[++top] = h;
+    while (top >= 0) {
+        h = stack[top--];
+        l = stack[top--];
+        int i = partition(arr, l, h);
+        if (i - 1 > l) {
+            stack[++top] = l;
+            stack[++top] = i - 1;
+        }
+        if (i + 1 < h) {
+            stack[++top] = i + 1;
+            stack[++top] = h;
+        }
+    }
+} 
+// recursive program for quickshort
+void recursivequickSort(int array[], int low, int high) {
+  if (low < high) {
+    int pi = partition(array, low, high);
+    recursivequickSort(array, low, pi - 1);
+    recursivequickSort(array, pi + 1, high);
+  }
+}
+int main() {
+  int i,max;
+  cout<<"enter the maximum size of array : ";
+  cin>>max;
+  int arr[max];
+  cout<<"enter your array :\n";
+  for(i=0;i<max;i++)
+  {
+  	cin>>arr[i];
+  }
+  cout << "Unsorted Array: \n";
+  printArray(arr, max);
+ iterativequickSort(arr, 0, max - 1);
+  recursivequickSort(arr,0,max-1);
+  cout << "Sorted array in ascending order: \n";
+  printArray(arr, max);
+}
