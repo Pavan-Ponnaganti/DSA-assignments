@@ -26,10 +26,10 @@ int partition(int array[], int low, int high) {
   swap(&array[i], &array[high]);
   return (i );
 }
-//iterative program for quickshorting
+//iterative program for quicksorting
 void iterativequickSort(int arr[], int l, int h)
 {
-	cout<<"iterative shorting \n";
+	cout<<"iterative sorting \n";
     int stack[h + 1];
     int top = -1;
     stack[++top] = l;
@@ -48,7 +48,7 @@ void iterativequickSort(int arr[], int l, int h)
         }
     }
 } 
-// recursive program for quickshort
+// recursive program for quicksort
 void recursivequickSort(int array[], int low, int high) {
   if (low < high) {
     int pi = partition(array, low, high);
