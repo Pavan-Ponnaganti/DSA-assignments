@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+int length(string s1)
+{
+   int i=0;
+   while(s1[i]!='\0')
+   i++;
+   cout<<"length of the string is "<<i<<"\n";	
+   return i;	
+}
+void string_con(string s1)
+{
+    string s2;
+    cout<< "enter the second string to concat  ";
+    cin>>s2;
+    s2=s1+s2;
+    cout<<s2<<"\n";
+}
+void string_copy(string s1)
+{ 
+    string s2;
+    s2=s1;
+    cout<<"s1 is copied to s2 \n ITS VALUE IS = "<<s2<<"\n";
+}
+void string_reverse(string s1,int len)
+{ 
+    int i;
+	for(i=len-1;i>=0;i--)
+	cout<<s1[i];
+}
+int main()
+{   
+    int len;
+	string s1;
+	cout<<"enter the string ";
+	cin>>s1;	
+	int choice;
+  while(1)
+  {
+    cout<<"\nChoose the string operation,\n";
+    cout<<"1. length\n";
+    cout<<"2. concatination\n";
+    cout<<"3. copy\n";
+    cout<<"4. reversing\n";
+    cout<<"5. Exit\n";
+    cout<<"Enter your choice: ";
+    cin>>choice;
+    switch (choice) {
+      case 1:
+      	len=length(s1);
+      	break;
+      case 2:
+        string_con(s1);
+        break;
+      case 3:
+      	string_copy(s1);
+      	break;
+      case 4:
+       string_reverse(s1,len);
+	   break;	
+      case 5:
+        cout<<"Thank You.\n";
+        exit(0);
+      default:
+        cout<<"Invalid input.\n";
+        cout<<"Please enter the correct input.\n";
+	return 0;	
+        }
+   }
+return 0;
+}
