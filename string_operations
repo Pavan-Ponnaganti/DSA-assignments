@@ -28,15 +28,13 @@ void string_reverse(string s1,int len)
 	for(i=len-1;i>=0;i--)
 	cout<<s1[i];
 }
-int main()
-{   
+int main(){ 
     int len;
 	string s1;
 	cout<<"enter the string ";
 	cin>>s1;	
 	int choice;
-  while(1)
-  {
+  while(1){
     cout<<"\nChoose the string operation,\n";
     cout<<"1. length\n";
     cout<<"2. concatination\n";
@@ -63,8 +61,7 @@ int main()
         exit(0);
       default:
         cout<<"Invalid input.\n";
-        cout<<"Please enter the correct input.\n";
-	return 0;	
+        cout<<"Please enter the correct input.\n";	
         }
    }
 return 0;
