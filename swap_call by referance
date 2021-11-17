@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+void swap(int*,int*);
+int main()
+{
+int num1,num2;
+cout<<"enter the number1 ";
+cin>>num1;
+cout<<"enter the number2 ";
+cin>>num2;
+swap(&num1,&num2);
+cout<<"the swpped numbers are "<<num1<<"\t"<<num2;
+return 0;	
+}
+void swap(int *num1,int *num2)
+{
+	int temp;
+	temp=*num1;
+	*num1=*num2;
+	*num2=temp;
+}
